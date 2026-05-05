@@ -1,6 +1,6 @@
 void main() {
-  final username = " ";
-  final password = "123";
+  final username = "Heitor Rodrigues";
+  final password = "123@-abc";
 
   bool isUsernameValidated = validateUsername(username);
   bool isPasswordValidated = validatePassword(password);
@@ -8,7 +8,7 @@ void main() {
   if (isUsernameValidated) {
     print("O usuário passou na validação");
   } else {
-    print("O usuário passou na validação");
+    print("O usuário não passou na validação");
   }
 
   if (isPasswordValidated) {
@@ -19,17 +19,13 @@ void main() {
 }
 
 bool validateUsername(String username) {
-  if (username.length > 0) {
-    return true;
-  }
+  final usernameRegex = RegExp(r'^[a-zA-Z][a-zA-Z0-9._-\s]{2,19}$');
 
-  return false;
+  return usernameRegex.hasMatch(username.trim());
 }
 
 bool validatePassword(String password) {
-  if (password.length > 0) {
-    return true;
-  }
+  final passwordRegex = RegExp(r'^[A-Za-z0-9@#$%-_\s]{4,}$');
 
-  return false;
+  return passwordRegex.hasMatch(password.trim());
 }
