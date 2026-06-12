@@ -1,0 +1,134 @@
+import 'package:calculator/src/ui/view_models/home_view_model.dart';
+import 'package:calculator/src/ui/views/home/widgets/button.dart';
+import 'package:calculator/src/ui/views/home/widgets/display.dart';
+import 'package:flutter/material.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _viewModel = HomeViewModel();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text(
+          "Calculator",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+            fontSize: 24,
+          ),
+        ),
+        backgroundColor: Colors.black,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Display(controller: _viewModel.displayController),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Button(text: "<", backgroundColor: Colors.grey, onPressed: () {}),
+              Button(text: "C", backgroundColor: Colors.grey, onPressed: () {}),
+              Button(text: "%", backgroundColor: Colors.grey, onPressed: () {}),
+              Button(
+                text: "/",
+                backgroundColor: Colors.orange,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Button(
+                text: "7",
+                onPressed: () => _viewModel.onPressedDigit("7"),
+              ),
+              Button(
+                text: "8",
+                onPressed: () => _viewModel.onPressedDigit("8"),
+              ),
+              Button(
+                text: "9",
+                onPressed: () => _viewModel.onPressedDigit("9"),
+              ),
+              Button(
+                text: "×",
+                backgroundColor: Colors.orange,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Button(
+                text: "4",
+                onPressed: () => _viewModel.onPressedDigit("4"),
+              ),
+              Button(
+                text: "5",
+                onPressed: () => _viewModel.onPressedDigit("5"),
+              ),
+              Button(
+                text: "6",
+                onPressed: () => _viewModel.onPressedDigit("6"),
+              ),
+              Button(
+                text: "−",
+                backgroundColor: Colors.orange,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Button(
+                text: "1",
+                onPressed: () => _viewModel.onPressedDigit("1"),
+              ),
+              Button(
+                text: "2",
+                onPressed: () => _viewModel.onPressedDigit("2"),
+              ),
+              Button(
+                text: "3",
+                onPressed: () => _viewModel.onPressedDigit("3"),
+              ),
+              Button(
+                text: "+",
+                backgroundColor: Colors.orange,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Button(
+                text: "0",
+                width: 178,
+                onPressed: () => _viewModel.onPressedDigit("0"),
+              ),
+              Button(text: ",", onPressed: () {}),
+              Button(
+                text: "=",
+                backgroundColor: Colors.orange,
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
