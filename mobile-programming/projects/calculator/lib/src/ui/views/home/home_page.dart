@@ -35,13 +35,27 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Button(text: "<", backgroundColor: Colors.grey, onPressed: () {}),
-              Button(text: "C", backgroundColor: Colors.grey, onPressed: () {}),
-              Button(text: "%", backgroundColor: Colors.grey, onPressed: () {}),
               Button(
-                text: "/",
+                text: "<",
+                backgroundColor: Colors.grey,
+                onPressed: () => _viewModel.onPressedDeleteCharacter(),
+              ),
+              Button(
+                text: "C",
+                backgroundColor: Colors.grey,
+                onPressed: () => _viewModel.onPressedClear(),
+              ),
+              Button(
+                text: "%",
+                backgroundColor: Colors.grey,
+                onPressed: () =>
+                    _viewModel.onPressedOperation(Operation.percentage),
+              ),
+              Button(
+                text: "÷",
                 backgroundColor: Colors.orange,
-                onPressed: () {},
+                onPressed: () =>
+                    _viewModel.onPressedOperation(Operation.divide),
               ),
             ],
           ),
@@ -63,7 +77,8 @@ class _HomePageState extends State<HomePage> {
               Button(
                 text: "×",
                 backgroundColor: Colors.orange,
-                onPressed: () {},
+                onPressed: () =>
+                    _viewModel.onPressedOperation(Operation.multiply),
               ),
             ],
           ),
@@ -85,7 +100,8 @@ class _HomePageState extends State<HomePage> {
               Button(
                 text: "−",
                 backgroundColor: Colors.orange,
-                onPressed: () {},
+                onPressed: () =>
+                    _viewModel.onPressedOperation(Operation.subtract),
               ),
             ],
           ),
@@ -107,7 +123,7 @@ class _HomePageState extends State<HomePage> {
               Button(
                 text: "+",
                 backgroundColor: Colors.orange,
-                onPressed: () {},
+                onPressed: () => _viewModel.onPressedOperation(Operation.add),
               ),
             ],
           ),
@@ -119,11 +135,11 @@ class _HomePageState extends State<HomePage> {
                 width: 178,
                 onPressed: () => _viewModel.onPressedDigit("0"),
               ),
-              Button(text: ",", onPressed: () {}),
+              Button(text: ",", onPressed: () => _viewModel.onPressedDecimal()),
               Button(
                 text: "=",
                 backgroundColor: Colors.orange,
-                onPressed: () {},
+                onPressed: () => _viewModel.onPressedEvaluate(),
               ),
             ],
           ),
